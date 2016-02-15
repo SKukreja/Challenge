@@ -1,5 +1,7 @@
+//Angular app declaration
 var app = angular.module("CodingChallenge", ["ui.router", "ngCookies", "ngMessages"]);
 
+//Routing information
 app.config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
 	$stateProvider
@@ -22,6 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider){
         })
 })
 
+//Directive to compare both password fields to make sure they match
 var compareTo = function() {
     return {
         require: "ngModel",

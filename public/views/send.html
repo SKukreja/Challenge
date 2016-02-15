@@ -1,6 +1,21 @@
-<div>Welcome {{ fname }} {{ lname }}. Your current balance is ${{ balance }}.</div>
-<a href="" ng-click="logout()">Log Out</a>
-<br />
-How much would you like to send {{ receiver.fname }}?
-$<input type="number" step='0.01' value='0.00' placeholder='0.00' min="0" max="{{ balance }}" ng-model="sendAmount">
-<a href="" ng-click="send()">Send</a>
+<div class="menu"><a href="" ng-click="dashboard()">Dashboard</a> <a href="" ng-click="logout()">Log Out</a></div>
+
+<div class="main">
+    <h2>Welcome {{ fname }} {{ lname }}!</h2> 
+    <p>Your current balance is: <br /><span class="balance">{{ balance | currency }}</span></p>
+    <p>Please enter the amount you would like to send to {{ receiver.fname }}?</p>
+</div>
+
+<div id="userList">
+    <form name="sendForm" novalidate="" enctype="multipart/form-data">
+    <input class="sendInput" name="amount" type="number" step='0.01' value='0.00' placeholder='Amount ($)' min="0" max="{{ balance }}" ng-model="sendAmount">
+    <div class="messages">
+        <div ng-messages="sendForm.amount.$error" ng-if='sendForm.amount.$dirty'>
+            <p ng-message="min">You cannot send a negative amount!</p>
+            <p ng-message="max">You cannot send a higher amount than your balance!</p>
+        </div>
+    </div>
+    <br /><br /><button class="btn" ng-disabled="sendForm.$invalid" ng-click="send()">Send</button>
+    </form>
+</div>
+

@@ -1,8 +1,13 @@
-<div>Welcome {{ fname }} {{ lname }}. Your current balance is ${{ balance }}.</div>
-<a href="" ng-click="logout()">Log Out</a>
+<div class="menu"><a href="" ng-click="logout()">Log Out</a></div>
+
+<div class="main">
+    <h2>Welcome {{ fname }} {{ lname }}!</h2> 
+    <p>Your current balance is: <br /><span class="balance">{{ balance | currency }}</span></p>
+    <p>Select a user on the right to send money.</p>
+</div>
 
 <div id="userList">
-    <ul>
-        <li ng-repeat="user in userList">{{ user.fname }} {{ user.lname }} ${{ user.balance }} <a href ng-click="send(user)">Send</a></li> 
-    </ul>
+    <table>
+        <tr ng-repeat="user in userList"><td>{{ user.fname }} {{ user.lname }}</td><td class="right">{{ user.balance | currency }}</td><td class="right"><a href ng-click="send(user)"><img src="assets/send.png"></a></td></tr> 
+    </table>
 </div>

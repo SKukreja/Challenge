@@ -36,6 +36,9 @@
     <form>
         <input type="email" class="form-control" ng-model="login.email" placeholder="Email" required><br />
         <input type="password" class="form-control" ng-model="login.password" placeholder="Password" required><br /><br />
+        <div class="messages">
+            <p ng-if="wrongInfo == true">The information your entered is incorrect</p>
+        </div>
         <button class="btn" ng-click="loginUser()">Log In</button>
     </form>
 </div>

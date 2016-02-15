@@ -1,3 +1,10 @@
+body {
+    background: url(../assets/background.png);
+    background-position: center center;
+    background-size: cover;
+    margin: 0;
+}
+
 h2 { 
     font-family: 'Open Sans', sans-serif; 
 }
@@ -6,7 +13,6 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
-    border: 1px solid black;
     padding-left: 15px;
     padding-right: 15px;
     height: 100%;
@@ -50,10 +56,44 @@ input::-webkit-input-placeholder {
  font-family: 'roboto', sans-serif;
  -webkit-transition: all 0.3s ease-in-out;
  transition: all 0.3s ease-in-out;
+ color: black;
 }
 
 input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
  color: black;
+ font-size: 11px;
+ -webkit-transform: translateY(-20px);
+ transform: translateY(-20px);
+ visibility: visible !important;
+}
+
+.sendInput {
+  border-bottom: solid 1px white;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, white 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, white 4%);
+  background-position: -300px 0;
+  background-size: 300px 100%;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.sendInput:focus, .sendInput:valid {
+ box-shadow: none;
+ outline: none;
+ background-position: 0 0;
+}
+
+.sendInput::-webkit-input-placeholder {
+ font-family: 'roboto', sans-serif;
+ -webkit-transition: all 0.3s ease-in-out;
+ transition: all 0.3s ease-in-out;
+ color: white;
+}
+
+.sendInput:focus::-webkit-input-placeholder, .sendInput:valid::-webkit-input-placeholder {
+ color: white;
  font-size: 11px;
  -webkit-transform: translateY(-20px);
  transform: translateY(-20px);
@@ -87,4 +127,74 @@ input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
 
 .messages {
     color: red;
+}
+
+.menu a {
+    float: left;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.menu {
+    position: absolute; 
+    z-index: 10;
+    top: 0;
+    height: 38px;
+    width: 100%;
+    background-color: black;
+}
+
+#userList {
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    min-height: 800px;
+    padding-top: 50px;
+    background-color: #333333;
+    text-align: center;
+}
+
+.main {
+    width: 70%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 800px;
+    padding-top: 50px;
+    background-color: #eee;
+    padding-left: 20px;
+}
+
+.balance {
+    font-size: 72px;
+    color: green;
+}
+
+.container {
+    position: relative;
+}
+
+#userList table {
+    width: 90%;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#userList table td {
+    padding-bottom: 15px;
+    vertical-align: top;
+}
+
+#userList img {
+    height: 20px;
+}
+
+.right {
+    text-align: right;
 }
