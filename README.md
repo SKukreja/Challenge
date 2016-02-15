@@ -1,5 +1,7 @@
 # coding-challenge
 
+A live demo can be found [HERE](http://sumit-kukreja.com/challenge/).
+
 ##Purpose
 
 Write an application that will do this:
