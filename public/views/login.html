@@ -1,0 +1,41 @@
+<div class="register-box">
+    <h2>Sign Up</h2>
+    <form name="registerForm" novalidate="" enctype="multipart/form-data">
+        <input type="email" class="form-control" name="email" ng-model="register.email" ng-blur="checkEmail(register.email)" placeholder="Email" required> <br />
+        <input type="text" class="form-control" name="fname" ng-model="register.fname" placeholder="First Name" required><br />
+        <input type="text" class="form-control" name="lname" ng-model="register.lname" placeholder="Last Name" required><br />
+        <input type="password" class="form-control" placeholder="Password" name="password" ng-minlength="8" ng-maxlength="25" required ng-model="register.password" /><br />
+        <input type="password" class="form-control" name="confirmPassword" ng-minlength="8" ng-maxlength="25" ng-model="register.confirmPassword" compare-to="register.password" placeholder="Confirm Password" required><br /><br />
+        <div class="messages">
+            <div ng-messages="registerForm.email.$error" ng-if='registerForm.email.$dirty'>
+                <p ng-message="required">Please enter your email address</p>
+            </div>
+            <p ng-if="exists == true">The email address has already been used to register an account</p>
+            <div ng-messages="registerForm.fname.$error" ng-if='registerForm.fname.$dirty'>
+                <p ng-message="required">Please enter your first name</p>
+            </div>
+            <div ng-messages="registerForm.lname.$error" ng-if='registerForm.lname.$dirty'>
+                <p ng-message="required">Please enter your last name</p>
+            </div>
+            <div ng-messages="registerForm.password.$error" ng-if='registerForm.password.$dirty'>
+                <p ng-message="required">Please create a password</p>
+                <p ng-message="minlength, maxlength">
+                    Your password must be between 8 and 25 characters long
+                </p>
+            </div>
+            <div ng-messages="registerForm.confirmPassword.$error" ng-if='registerForm.confirmPassword.$dirty'>
+                <p ng-message="compareTo">Your passwords do not match</p>
+            </div>
+        </div>
+        <button ng-disabled="registerForm.$invalid" class="btn" ng-click="registerUser()">Sign Up</button>
+    </form>
+</div>
+    
+<div class="login-box">
+    <h2>Login</h2>
+    <form>
+        <input type="email" class="form-control" ng-model="login.email" placeholder="Email" required><br />
+        <input type="password" class="form-control" ng-model="login.password" placeholder="Password" required><br /><br />
+        <button class="btn" ng-click="loginUser()">Log In</button>
+    </form>
+</div>

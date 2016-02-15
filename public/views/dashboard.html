@@ -1,0 +1,8 @@
+<div>Welcome {{ fname }} {{ lname }}. Your current balance is ${{ balance }}.</div>
+<a href="" ng-click="logout()">Log Out</a>
+
+<div id="userList">
+    <ul>
+        <li ng-repeat="user in userList">{{ user.fname }} {{ user.lname }} ${{ user.balance }} <a href ng-click="send(user)">Send</a></li> 
+    </ul>
+</div>

@@ -1,0 +1,6 @@
+<div>Welcome {{ fname }} {{ lname }}. Your current balance is ${{ balance }}.</div>
+<a href="" ng-click="logout()">Log Out</a>
+<br />
+How much would you like to send {{ receiver.fname }}?
+$<input type="number" step='0.01' value='0.00' placeholder='0.00' min="0" max="{{ balance }}" ng-model="sendAmount">
+<a href="" ng-click="send()">Send</a>
